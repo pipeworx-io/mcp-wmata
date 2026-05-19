@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.pipeworx-io/wmata",
+  "title": "Wmata",
+  "description": "Washington Metro real-time + static rail/bus data. Free key required.",
+  "version": "0.1.0",
+  "websiteUrl": "https://pipeworx.io/packs/wmata",
+  "repository": {
+    "url": "https://github.com/pipeworx-io/mcp-wmata",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gateway.pipeworx.io/wmata/mcp"
+    }
+  ]
+}
