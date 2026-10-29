@@ -1,0 +1,127 @@
+[
+  {
+    "name": "rail_lines",
+    "description": "Return all WMATA Metro rail lines (Red, Blue, Orange, Silver, Green, Yellow) with line code, display name, start/end station codes, and internal track IDs.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "rail_stations",
+    "description": "Return all WMATA Metro rail stations, optionally filtered by `line_code`. Returns station code, name, line codes served, and latitude/longitude.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "line_code": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  {
+    "name": "rail_station_info",
+    "description": "Fetch details for a specific WMATA Metro station by `station_code`. Returns name, address, line codes, adjacent station codes, and coordinates.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "station_code": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "station_code"
+      ]
+    }
+  },
+  {
+    "name": "rail_predictions",
+    "description": "Fetch real-time next-train arrival predictions for one or more WMATA stations by comma-separated `station_codes` (or \"All\"). Returns line, destination, car count, and minutes until arrival.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "station_codes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "station_codes"
+      ]
+    }
+  },
+  {
+    "name": "rail_incidents",
+    "description": "Fetch current WMATA Metro rail service alerts and incidents. Returns incident description, affected line codes, date/time updated, and incident type.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "bus_routes",
+    "description": "Return all WMATA bus routes. Returns route ID, route name, and line description. Use to enumerate available routes before fetching details or predictions.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "bus_route_details",
+    "description": "Fetch stop sequence and path details for a WMATA bus route by `route_id` and optional `date`. Returns direction names, stop names/IDs, and geo coordinates for the route shape.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "route_id": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "route_id"
+      ]
+    }
+  },
+  {
+    "name": "bus_stops",
+    "description": "Find WMATA bus stops near a latitude/longitude within an optional `radius` (meters). Returns stop ID, name, routes serving the stop, and coordinates.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "lat": {
+          "type": "number"
+        },
+        "lon": {
+          "type": "number"
+        },
+        "radius": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  {
+    "name": "bus_predictions",
+    "description": "Fetch real-time next-bus arrival predictions for a WMATA bus stop by `stop_id`. Returns route ID, direction text, vehicle ID, and minutes until arrival.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "stop_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "stop_id"
+      ]
+    }
+  },
+  {
+    "name": "bus_incidents",
+    "description": "Fetch current WMATA bus service alerts and incidents. Returns incident description, affected route IDs, date/time updated, and incident type.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]
